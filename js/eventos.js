@@ -2,6 +2,19 @@
 // interactuando con el usuario y el modelo de datos desarrollado en modulos.js
 
 document.addEventListener("DOMContentLoaded", () => {
+    const form_agregar = document.querySelector("#form_agregar");
+    form_agregar.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const nuevaPersona = {
+            nombre: form_agregar.nombre.value,
+            edad: form_agregar.edad.value,
+            DNI: form_agregar.DNI.value
+        }
+        agregarPersona(nuevaPersona);
+        form_agregar.reset();
+        form_agregar.style.display = "none";
+    })
+    
     //cargamos listado de personas
 
 
