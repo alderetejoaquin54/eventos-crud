@@ -2,21 +2,12 @@
 // interactuando con el usuario y el modelo de datos desarrollado en modulos.js
 
 document.addEventListener("DOMContentLoaded", () => {
-    const form_agregar = document.querySelector("#form_agregar");
-    form_agregar.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const nuevaPersona = {
-            nombre: form_agregar.nombre.value,
-            edad: form_agregar.edad.value,
-            DNI: form_agregar.DNI.value
-        }
-        agregarPersona(nuevaPersona);
-        form_agregar.reset();
-        form_agregar.style.display = "none";
-    })
-    
-    //cargamos listado de personas
+        //cargamos listado de personas
 
+    mostrarPersonas();
+
+
+    
 
     //Mostrar formulario para agregar Persona desde el boton "Agregar Persona"
     const btn_agregar = document.querySelector("#btn-agregar");
@@ -33,7 +24,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     //evento "submit" formulario "AgregarPersona"
- 
+        //Enviar formulario
+        const form_agregar = document.querySelector("#form-agregar");
+        console.log(form_agregar)
+        form_agregar.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const nuevaPersona = {
+                nombre: form_agregar.nombre.value,
+                edad: form_agregar.edad.value,
+                DNI: form_agregar.dni.value
+            }
+            agregarPersona(nuevaPersona);
+            form_agregar.reset();
+            form_agregar.style.display = "none";
+        })
 
     //----------------------------------------------------------------------------------------------------------
     //El evento de mostraFormularioModificar y cerrar formulario queda dentro de la funcion mostrarPersonas

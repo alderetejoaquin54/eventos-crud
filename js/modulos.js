@@ -3,10 +3,32 @@
 //en este caso los almacenados en el localStorage
 
 //funcion agregarPersona
-
+let personas = [];
+const agregarPersona = (nuevaPersona) => {
+    personas.push(nuevaPersona);
+    localStorage.setItem("personas", JSON.stringify(personas)); //objeto a JSon
+    mostrarMensaje("Nueva persona agregada"); 
+}
 
 //funcion Listado de todos los registros de Personas
+const mostrarPersonas=()=>{
+    const contadorPersonas=document.querySelector('#listadoPersonas')
 
+    personas=JSON.parse(localStorage.getItem(`personas`)) //JSon a objeto
+    personas.forEach(p => {
+        contadorPersonas.innerHTML += `<div class="persona">
+        <div class="info">
+            <p>Nombre: ${p.nombre}</p>
+            <p>Edad: ${p.edad}</p>
+            <p>Dni: ${p.DNI}</p>
+        </div>
+        <div class="botones">
+            <button class="btn-modificar">Modificar</button>
+            <button class="btn-eliminar">Eliminar</button>
+        </div>
+        </div>`
+    });
+}
 
 //funcion para buscar Personas por nombre o dni
 
