@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(form_agregar)
         form_agregar.addEventListener("submit", (e) => {
             e.preventDefault();
+
             const nuevaPersona = {
                 nombre: form_agregar.nombre.value,
                 edad: form_agregar.edad.value,
@@ -39,15 +40,18 @@ document.addEventListener("DOMContentLoaded", () => {
             form_agregar.style.display = "none";
         })
 
-    //----------------------------------------------------------------------------------------------------------
-    //El evento de mostraFormularioModificar y cerrar formulario queda dentro de la funcion mostrarPersonas
-    //porque pueden ser varios botones y es necesario individualizarlos para capturar los datos de cada persona
-    //lo mismo para el boton eliminar queda dentro de la funcion mostrarPersonas
-    //----------------------------------------------------------------------------------------------------------
-
-
     //evento "submit" formulario buscar
-   
+        const form_buscar = document.querySelector("#form-buscar");
+        console.log(form_buscar)
+        form_buscar.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const personaABuscar = {
+            nombre: form_buscar.nombre.value,
+            dni: form_buscar.dni.value
+        }
+        buscarPersonas(personaABuscar)
+    }
+        )
 
     //boton limpiar filtros
    
