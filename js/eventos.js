@@ -54,6 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
         )
 
     //boton limpiar filtros
+        const form_limpiarFiltro = document.querySelector("#btn-filtros")
+        form_limpiarFiltro.addEventListener("click", (event) => {
+            form_buscar.reset()
+            mostrarPersonas()
+        })
    
 
     //evento "submit" formulario modificar
